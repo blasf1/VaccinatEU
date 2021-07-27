@@ -8,6 +8,7 @@
 #ranking td, #ranking th {
   padding: 8px;
   border-bottom: 1px solid #ddd;
+  vertical-align: center;
 }
 
 #ranking th {
@@ -17,6 +18,7 @@
   border-bottom: 1px solid;
   background-color: #FFFF;
   color: black;
+  vertical-align: center;
 }
 </style>
 <!DOCTYPE HTML>
@@ -104,7 +106,7 @@
 				
 				   <div class="social wow fadeInRight animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
 					   <ul>
-						   <li><a href="#" class="facebook twitter"> </a></li>
+						   <li><a href="https://twitter.com/VaccinationEu" class="facebook twitter"> </a></li>
 					   </ul>		
 				   </div>
 			   <div class="clearfix"></div>
@@ -113,20 +115,25 @@
 		   </nav>
 		   </div>
 			
-        
-        <div id="graphs" class="container" style="padding-top: 100px;">
-            <h2>Share of people vaccinated against COVID-19</h2>
-            <div id="includedContent"></div>
-            <div w3-include-html="content.html"></div> 
-            <iframe class="frame" is="x-frame-bypass" autosize=true style="border:none; padding-top: 20px;"seamless="seamless" 
-                src="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html" width=850 height=800></iframe>
+       <div class="container" style="padding-top: 100px;">
+        <h2>@VaccinationEU</h2>
+        <div style="padding-top: 20px;"></div>
+        <p>Welcome to @VaccinationEU website. You'll find extended data that you can't find on our Twitter bot and all annotations about the sources. Enjoy!</p>
         </div>
-        <div id="ranking-header" class="container" style="padding-top: 30px;">
-            <h2>European Union Ranking</h2>
+        <div id="ranking-header" class="container" style="padding-top: 50px;">
+            <h2 style="font-weight: bold;">Current situation</h2>
             <div style="padding-top: 30px;" id="ranking"></div>
+            <p>*70% of people fully vaccinated</p>
         </div>
+        <div id="graphs" class="container" style="padding-top: 50px;">
+          <h2 style="font-weight: bold;">Share of people vaccinated against COVID-19</h2>
+          <div id="includedContent"></div>
+          <div w3-include-html="content.html"></div> 
+          <iframe class="frame" is="x-frame-bypass" autosize=true style="border:none; padding-top: 20px;"seamless="seamless" 
+              src="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html" width=850 height=800></iframe>
+      </div>
         <div id="about" class="container" style="padding-top: 20px;">
-            <h2>About</h2>
+            <h2 style="font-weight: bold;">About</h2>
         </div>
 </body>
 </html>
@@ -186,6 +193,7 @@
                     <td><span style="font-size: 20px; font-weight: bold;"">${country}</span></td>
                     <td><span style="font-size: 20px; font-weight: bold;">${check_zero_value(data.people_fully_vaccinated)} %</span></td>
                     <td><span style="font-size: 20px;">${data.people_vaccinated} %</span></td>
+                    <td><span style="font-size: 20px;">${data.days_to_70}</span></td>
                     </tr>`
         if(country in NON_EU){
             object = `<tr>
@@ -194,6 +202,7 @@
                     <td><span style="font-size: 20px; font-weight: bold;"">${country}</span></td>
                     <td><span style="font-size: 20px; font-weight: bold;">${check_zero_value(data.people_fully_vaccinated)} %</span></td>
                     <td><span style="font-size: 20px;">${data.people_vaccinated} %</span></td>
+                    <td><span style="font-size: 20px;">${data.days_to_70}</span></td>
                     </tr>`
         }
         return object
@@ -208,6 +217,7 @@
                       <th scope="col">Country</th>
                       <th scope="col">People fully vaccinated</th>
                       <th scope="col">People with at least 1 dose</th>
+                      <th scope="col">Days to 70%*</th>
                     </tr>
                   </thead>
                     <tbody>
@@ -220,6 +230,10 @@
         var tbodies = []
         
         data["countries_sorted"].map(country => {
+            if(data["data"][country].days_to_70 < 0){
+              data["data"][country].days_to_70 = "&#9989"
+            }
+            
             tbodies.push(return_tbody(country, data["data"][country]))
         })
 
