@@ -115,7 +115,7 @@
 		   </nav>
 		   </div>
 			
-       <div class="container" style="padding-top: 100px;">
+       <div id="intro" class="container" style="padding-top: 100px;">
         <h2>@VaccinationEU</h2>
         <div style="padding-top: 20px;"></div>
         <p>Welcome to @VaccinationEU website. You'll find extended data that you can't find on our Twitter bot and all annotations about the sources. Enjoy!</p>
@@ -131,9 +131,12 @@
           <div w3-include-html="content.html"></div> 
           <iframe class="frame" is="x-frame-bypass" autosize=true style="border:none; padding-top: 20px;"seamless="seamless" 
               src="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html" width=850 height=800></iframe>
-      </div>
+        </div>
         <div id="about" class="container" style="padding-top: 20px;">
             <h2 style="font-weight: bold;">About</h2>
+        </div>
+        <div id="about" class="container" style="padding-top: 20px;">
+          <h2 style="font-weight: bold;">Contact</h2>
         </div>
 </body>
 </html>
@@ -188,8 +191,8 @@
 
     function return_tbody(country, data){
         var object = `<tr>
-                    <td><img width="40px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${COUNTRIES_CODES[country]}.png" />
-                    <img width="40px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/EU.png" /></td>
+                    <td><img width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${COUNTRIES_CODES[country]}.png" />
+                    <img width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/EU.png" /></td>
                     <td><span style="font-size: 20px; font-weight: bold;"">${country}</span></td>
                     <td><span style="font-size: 20px; font-weight: bold;">${check_zero_value(data.people_fully_vaccinated)} %</span></td>
                     <td><span style="font-size: 20px;">${data.people_vaccinated} %</span></td>
@@ -198,7 +201,7 @@
         if(country in NON_EU){
             object = `<tr>
                     <td>
-                    <img style="margin-left:44px;" width="40px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${NON_EU[country]}.png" /></td>
+                    <img style="margin-left:39px;" width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${NON_EU[country]}.png" /></td>
                     <td><span style="font-size: 20px; font-weight: bold;"">${country}</span></td>
                     <td><span style="font-size: 20px; font-weight: bold;">${check_zero_value(data.people_fully_vaccinated)} %</span></td>
                     <td><span style="font-size: 20px;">${data.people_vaccinated} %</span></td>
