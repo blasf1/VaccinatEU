@@ -116,15 +116,14 @@
         
         <div id="graphs" class="container" style="padding-top: 100px;">
             <h2>Share of people vaccinated against COVID-19</h2>
-            <link rel="import" href="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html">
             <div id="includedContent"></div>
             <div w3-include-html="content.html"></div> 
-            <iframe class="frame" is="x-frame-bypass" autosize=true style="border:none;" seamless="seamless" 
-                src="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html" width=850 height=775></iframe>
+            <iframe class="frame" is="x-frame-bypass" autosize=true style="border:none; padding-top: 20px;"seamless="seamless" 
+                src="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html" width=850 height=800></iframe>
         </div>
-        <div id="ranking-header" class="container" style="padding-top: 20px;">
+        <div id="ranking-header" class="container" style="padding-top: 30px;">
             <h2>European Union Ranking</h2>
-            <div id="ranking"></div>
+            <div style="padding-top: 30px;" id="ranking"></div>
         </div>
         <div id="about" class="container" style="padding-top: 20px;">
             <h2>About</h2>
@@ -190,7 +189,8 @@
                     </tr>`
         if(country in NON_EU){
             object = `<tr>
-                    <td><img width="40px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${NON_EU[country]}.png" alt=\"" />
+                    <td>
+                    <img style="margin-left:44px;" width="40px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${NON_EU[country]}.png" /></td>
                     <td><span style="font-size: 20px; font-weight: bold;"">${country}</span></td>
                     <td><span style="font-size: 20px; font-weight: bold;">${check_zero_value(data.people_fully_vaccinated)} %</span></td>
                     <td><span style="font-size: 20px;">${data.people_vaccinated} %</span></td>
