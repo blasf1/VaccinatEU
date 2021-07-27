@@ -1,0 +1,167 @@
+<style>
+#ranking {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#ranking td, #ranking th {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+#ranking th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
+  border-bottom: 1px solid;
+  background-color: #FFFF;
+  color: black;
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
+        <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
+    </head>
+<body>
+    <div class="container" style="padding-top: 10px;">
+        <link rel="import" href="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html">
+        <div id="includedContent"></div>
+        <div w3-include-html="content.html"></div> 
+        <iframe class="frame" is="x-frame-bypass" autosize=true style="border:none;" seamless="seamless" 
+            src="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html" width=850 height=775></iframe>
+        <script>
+            w3IncludeHTML();
+        </script>
+        <h2>European Union Ranking</h2>
+        <div id="ranking"></div>
+
+    </div>
+
+</body>
+</html>
+
+<script>
+    COUNTRIES_CODES = {
+        "Austria": "AT",
+        "Belgium": "BE",
+        "Bulgaria": "BG",
+        "Croatia": "HR",
+        "Cyprus": "CY",
+        "Czechia": "CZ",
+        "Denmark": "DK",
+        "Estonia": "EE",
+        "Finland": "FI",
+        "France": "FR",
+        "Germany": "DE",
+        "Greece": "GR",
+        "Hungary": "HU",
+        "Ireland": "IE",
+        "Italy": "IT",
+        "Latvia": "LV",
+        "Lithuania": "LT",
+        "Luxembourg": "LU",
+        "Malta": "MT",
+        "Netherlands": "NL",
+        "Poland": "PL",
+        "Portugal": "PT",
+        "Romania": "RO",
+        "Slovakia": "SK",
+        "Slovenia": "SI",
+        "Spain": "ES",
+        "Sweden": "SE"
+    }
+    
+    NON_EU = {
+        "European Union": "EU",
+        "United Kingdom": "UK",
+        "United States": "US"
+    }
+
+    download_data()
+    download_graph()
+
+    function check_zero_value(value){
+        if(value==0){
+            return "--"
+        } else {
+            return value
+        }
+    }
+
+    function return_tbody(country, data){
+        var object = `<tr>
+                    <td><img width="40px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${COUNTRIES_CODES[country]}.png" />
+                    <img width="40px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/EU.png" /></td>
+                    <td><span style="font-size: 20px; font-weight: bold;"">${country}</span></td>
+                    <td><span style="font-size: 20px; font-weight: bold;">${check_zero_value(data.people_fully_vaccinated)} %</span></td>
+                    <td><span style="font-size: 20px;">${data.people_vaccinated} %</span></td>
+                    </tr>`
+        if(country in NON_EU){
+            object = `<tr>
+                    <td><img width="40px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${NON_EU[country]}.png" alt=\"" />
+                    <td><span style="font-size: 20px; font-weight: bold;"">${country}</span></td>
+                    <td><span style="font-size: 20px; font-weight: bold;">${check_zero_value(data.people_fully_vaccinated)} %</span></td>
+                    <td><span style="font-size: 20px;">${data.people_vaccinated} %</span></td>
+                    </tr>`
+        }
+        return object
+    }
+
+    function return_table(list_tbodies){
+        let tbodies = list_tbodies.join('')
+        return `<table class="table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th scope="col">Country</th>
+                      <th scope="col">People fully vaccinated</th>
+                      <th scope="col">People with at least 1 dose</th>
+                    </tr>
+                  </thead>
+                    <tbody>
+                        ${tbodies}
+                    </tbody>
+                   </table>`
+    }
+
+    function build_table(data){
+        var tbodies = []
+        
+        data["countries_sorted"].map(country => {
+            tbodies.push(return_tbody(country, data["data"][country]))
+        })
+
+        document.getElementById("ranking").innerHTML = return_table(tbodies);
+
+    }
+
+
+    // function update_date(data){
+    //     document.getElementById("date-update").innerHTML = data["max_date"];
+    // }
+    function download_data() {
+        var requestURL = `https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/vaccination.json`;
+        var request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+        request.responseType = 'json';
+        request.send();
+        request.onload = function () {
+            var data = request.response;
+            build_table(data);
+            //update_date(data);
+        }
+    }
+
+    function download_graph(){
+
+    }
+
+</script>
+<noscript>You need to enable JavaScript to view the full site.</noscript>
