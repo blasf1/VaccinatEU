@@ -251,7 +251,9 @@
             if (data["data"][country].days_to_70 < 0) {
                 data["data"][country].days_to_70 = "&#9989"
             }
-
+            if (data["data"][country].days_to_70 == Infinity){
+                data["data"][country].days_to_70 = "--"
+            }
             tbodies.push(return_tbody(country, data["data"][country]))
         })
 
