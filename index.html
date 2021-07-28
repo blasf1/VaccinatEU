@@ -1,144 +1,156 @@
 <style>
-#ranking {
-  font-family: Arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+    #ranking {
+        font-family: Arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-#ranking td, #ranking th {
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
-  vertical-align: center;
-}
+    #ranking td,
+    #ranking th {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        vertical-align: center;
+    }
 
-#ranking th {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  text-align: left;
-  border-bottom: 1px solid;
-  background-color: #FFFF;
-  color: black;
-  vertical-align: center;
-}
+    #ranking th {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: left;
+        border-bottom: 1px solid;
+        background-color: #FFFF;
+        color: black;
+        vertical-align: center;
+    }
 </style>
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
-        <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<!-- Custom Theme files -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
+    <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script
+        type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
 
-	<link href="css/style.css" rel='stylesheet' type='text/css' />	
-	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/move-top.js"></script>
-		   <script type="text/javascript" src="js/easing.js"></script>
-			<script type="text/javascript">
-				jQuery(document).ready(function($) {
-					$(".scroll").click(function(event){		
-						event.preventDefault();
-						$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-					});
-				});
-			</script>
-			<script type="text/javascript">
-			$(document).ready(function() {
-					
-			$().UItoTop({ easingType: 'easeOutQuart' });
-	});
-	</script>
-	 <script src="js/jquery.chocolat.js"></script>
-			<link rel="stylesheet" href="css/chocolat.css" type="text/css" media="all" />
-			<!--light-box-files -->
-			<script type="text/javascript">
-			$(function() {
-				$('#example1 a').Chocolat();
-			});
-			</script>
-			<script type="text/javascript">
-			$(function() {
-				$('#portfolio a').Chocolat();
-			});
-			</script>
-			<!-- animation-effect -->
-	<link href="css/animate.min.css" rel="stylesheet"> 
-	<script src="js/wow.min.js"></script>
-	<script>
-	 new WOW().init();
-	</script>
-	<!-- //animation-effect -->
-	
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1200);
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+    <script src="js/jquery.chocolat.js"></script>
+    <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="all" />
+    <!--light-box-files -->
+    <script type="text/javascript">
+        $(function () {
+            $('#example1 a').Chocolat();
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#portfolio a').Chocolat();
+        });
+    </script>
+    <!-- animation-effect -->
+    <link href="css/animate.min.css" rel="stylesheet">
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!-- //animation-effect -->
+
 </head>
+
 <body>
 
 
-	<div class="banner w3l-1">
-		<nav class="navbar navbar-default navbar-fixed-top">
-			 <div class="container">
-			   <div class="navbar-header wow fadeInLeft animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInLeft;">
-			
-				<!--toggle button-->
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				  </button>
-          <img width="50px" href="#" src="https://github.com/blasf1/VaccinatEU/raw/main/images/profilepicture.png"/>
-			   </div>
-			   <div id="navbar" class="navbar-collapse collapse">
-				 <ul class="nav navbar-nav">
-				   <li><a href="#graphs" class="scroll">Graphs</a></li>
-					 <li><a href="#ranking-header" class="scroll">Ranking</a></li>
-                     <li><a href="#about" class="scroll">About</a></li>
-				   <li><a href="#contact" class="scroll">Contact</a></li>
-				  
-				 </ul>
-				
-				   <div class="social wow fadeInRight animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
-					   <ul>
-						   <li><a href="https://twitter.com/VaccinationEu" class="facebook twitter"> </a></li>
-					   </ul>		
-				   </div>
-			   <div class="clearfix"></div>
-			   </div> 
-			 </div>
-		   </nav>
-		   </div>
-			
-       <div id="intro" class="container" style="padding-top: 100px;">
+    <div class="banner w3l-1">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header wow fadeInLeft animated animated" data-wow-delay=".5s"
+                    style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInLeft;">
+
+                    <!--toggle button-->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img width="50px" href="#"
+                        src="https://github.com/blasf1/VaccinatEU/raw/main/images/profilepicture.png" />
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#graphs" class="scroll">Graphs</a></li>
+                        <li><a href="#ranking-header" class="scroll">Ranking</a></li>
+                        <li><a href="#about" class="scroll">About</a></li>
+                        <li><a href="#contact" class="scroll">Contact</a></li>
+
+                    </ul>
+
+                    <div class="social wow fadeInRight animated animated" data-wow-delay=".5s"
+                        style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
+                        <ul>
+                            <li><a href="https://twitter.com/VaccinationEu" class="facebook twitter"> </a></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div id="intro" class="container" style="padding-top: 100px;">
         <h2>@VaccinationEU</h2>
         <div style="padding-top: 20px;"></div>
-        <p>Welcome to @VaccinationEU website. You'll find extended data that you can't find on our Twitter bot and all annotations about the sources. Enjoy!</p>
-        </div>
-        <div id="ranking-header" class="container" style="padding-top: 50px;">
-            <h2 style="font-weight: bold;">Current situation</h2>
-            <div style="padding-top: 30px;" id="ranking"></div>
-            <p>*70% of people fully vaccinated</p>
-        </div>
-        <div id="graphs" class="container" style="padding-top: 50px;">
-          <h2 style="font-weight: bold;">Share of people vaccinated against COVID-19</h2>
-          <div id="includedContent"></div>
-          <div w3-include-html="content.html"></div> 
-          <iframe class="frame" is="x-frame-bypass" autosize=true style="border:none; padding-top: 20px;"seamless="seamless" 
-              src="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html" width=850 height=800></iframe>
-        </div>
-        <div id="about" class="container" style="padding-top: 20px;">
-            <h2 style="font-weight: bold;">About</h2>
-        </div>
-        <div id="about" class="container" style="padding-top: 20px;">
-          <h2 style="font-weight: bold;">Contact</h2>
-        </div>
+        <p>Welcome to @VaccinationEU website. You'll find extended data that you can't find on our Twitter bot and all
+            annotations about the sources. Enjoy!</p>
+    </div>
+    <div id="ranking-header" class="container" style="padding-top: 50px;">
+        <h2 style="font-weight: bold;">Current situation</h2>
+        <div style="padding-top: 30px;" id="ranking"></div>
+        <p>*70% of people fully vaccinated</p>
+    </div>
+    <div id="graphs" class="container" style="padding-top: 50px;">
+        <h2 style="font-weight: bold;">Share of people vaccinated against COVID-19</h2>
+        <div id="includedContent"></div>
+        <div w3-include-html="content.html"></div>
+        <iframe class="frame" is="x-frame-bypass" autosize=true style="border:none; padding-top: 20px;"
+            seamless="seamless"
+            src="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html"
+            width=850 height=800></iframe>
+    </div>
+    <div id="about" class="container" style="padding-top: 20px;">
+        <h2 style="font-weight: bold;">About</h2>
+    </div>
+    <div id="about" class="container" style="padding-top: 20px;">
+        <h2 style="font-weight: bold;">Contact</h2>
+    </div>
 </body>
+
 </html>
 
 <script>
@@ -171,7 +183,7 @@
         "Spain": "ES",
         "Sweden": "SE"
     }
-    
+
     NON_EU = {
         "European Union": "EU",
         "United Kingdom": "UK",
@@ -181,15 +193,15 @@
     download_data()
     download_graph()
 
-    function check_zero_value(value){
-        if(value==0){
+    function check_zero_value(value) {
+        if (value == 0) {
             return "--"
         } else {
             return value
         }
     }
 
-    function return_tbody(country, data){
+    function return_tbody(country, data) {
         var object = `<tr>
                     <td><img width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${COUNTRIES_CODES[country]}.png" />
                     <img width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/EU.png" /></td>
@@ -197,8 +209,9 @@
                     <td><span style="font-size: 20px; font-weight: bold;">${check_zero_value(data.people_fully_vaccinated)} %</span></td>
                     <td><span style="font-size: 20px;">${data.people_vaccinated} %</span></td>
                     <td><span style="font-size: 20px;">${data.days_to_70}</span></td>
+                    <td><span style="font-size: 20px;">${data.date}</span></td>
                     </tr>`
-        if(country in NON_EU){
+        if (country in NON_EU) {
             object = `<tr>
                     <td>
                     <img style="margin-left:39px;" width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${NON_EU[country]}.png" /></td>
@@ -206,12 +219,13 @@
                     <td><span style="font-size: 20px; font-weight: bold;">${check_zero_value(data.people_fully_vaccinated)} %</span></td>
                     <td><span style="font-size: 20px;">${data.people_vaccinated} %</span></td>
                     <td><span style="font-size: 20px;">${data.days_to_70}</span></td>
+                    <td><span style="font-size: 20px;">${data.date}</span></td>
                     </tr>`
         }
         return object
     }
 
-    function return_table(list_tbodies){
+    function return_table(list_tbodies) {
         let tbodies = list_tbodies.join('')
         return `<table class="table">
                   <thead>
@@ -221,6 +235,7 @@
                       <th scope="col">People fully vaccinated</th>
                       <th scope="col">People with at least 1 dose</th>
                       <th scope="col">Days to 70%*</th>
+                      <th scope="col">Last update</th>
                     </tr>
                   </thead>
                     <tbody>
@@ -229,14 +244,14 @@
                    </table>`
     }
 
-    function build_table(data){
+    function build_table(data) {
         var tbodies = []
-        
+
         data["countries_sorted"].map(country => {
-            if(data["data"][country].days_to_70 < 0){
-              data["data"][country].days_to_70 = "&#9989"
+            if (data["data"][country].days_to_70 < 0) {
+                data["data"][country].days_to_70 = "&#9989"
             }
-            
+
             tbodies.push(return_tbody(country, data["data"][country]))
         })
 
@@ -261,7 +276,7 @@
         }
     }
 
-    function download_graph(){
+    function download_graph() {
 
     }
 
