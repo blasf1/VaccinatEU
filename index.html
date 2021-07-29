@@ -107,9 +107,9 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="#graphs" class="scroll">Graphs</a></li>
-                        <li><a href="#ranking-header" class="scroll">Ranking</a></li>
+                        <li><a href="#ranking-header" class="scroll">Current situation</a></li>
                         <li><a href="#sources" class="scroll">Sources</a></li>
-                        <li><a href="#contact" class="scroll">Contact</a></li>
+                        <li><a href="#contact" class="scroll">About us</a></li>
 
                     </ul>
 
@@ -274,7 +274,7 @@
                 <tr>
                     <td><span style="font-weight: bold; font-size: 14;">Netherlands</span></td>
                     <td><span style="font-size: 14;"><a
-                                href="https://www.ecdc.europa.eu/en/publications-data/data-covid-19-vaccination-eu-eea">https://www.ecdc.europa.eu/en/publications-data/data-covid-19-vaccination-eu-eea</a></span>
+                                href="https://github.com/YorickBleijenberg/COVID_data_RIVM_Netherlands/tree/master/vaccination/daily-dashboard-update">https://github.com/YorickBleijenberg/COVID_data_RIVM_Netherlands/tree/master/vaccination/daily-dashboard-update</a></span>
                     </td>
                 </tr>
                 <tr>
@@ -295,11 +295,15 @@
                 </tr>
                 <tr>
                     <td><span style="font-weight: bold; font-size: 14;">Slovakia</span></td>
-                    <td><span style="font-size: 14;"><a href="https://github.com/Institut-Zdravotnych-Analyz/covid19-data">https://github.com/Institut-Zdravotnych-Analyz/covid19-data</a></span></td>
+                    <td><span style="font-size: 14;"><a
+                                href="https://github.com/Institut-Zdravotnych-Analyz/covid19-data">https://github.com/Institut-Zdravotnych-Analyz/covid19-data</a></span>
+                    </td>
                 </tr>
                 <tr>
                     <td><span style="font-weight: bold; font-size: 14;">Slovenia</span></td>
-                    <td><span style="font-size: 14;"><a href="https://covid-19.sledilnik.org/en/stats">https://covid-19.sledilnik.org/en/stats</a></span></td>
+                    <td><span style="font-size: 14;"><a
+                                href="https://covid-19.sledilnik.org/en/stats">https://covid-19.sledilnik.org/en/stats</a></span>
+                    </td>
                 </tr>
                 <tr>
                     <td><span style="font-weight: bold; font-size: 14;">Spain</span></td>
@@ -309,7 +313,9 @@
                 </tr>
                 <tr>
                     <td><span style="font-weight: bold; font-size: 14;">Sweden</span></td>
-                    <td><span style="font-size: 14;"><a href="https://www.folkhalsomyndigheten.se/smittskydd-beredskap/utbrott/aktuella-utbrott/covid-19/vaccination-mot-covid-19/statistik/statistik-over-registrerade-vaccinationer-covid-19/">https://www.folkhalsomyndigheten.se/smittskydd-beredskap/utbrott/aktuella-utbrott/covid-19/vaccination-mot-covid-19/statistik/statistik-over-registrerade-vaccinationer-covid-19/</a></span></td>
+                    <td><span style="font-size: 14;"><a
+                                href="https://www.folkhalsomyndigheten.se/smittskydd-beredskap/utbrott/aktuella-utbrott/covid-19/vaccination-mot-covid-19/statistik/statistik-over-registrerade-vaccinationer-covid-19/">https://www.folkhalsomyndigheten.se/smittskydd-beredskap/utbrott/aktuella-utbrott/covid-19/vaccination-mot-covid-19/statistik/statistik-over-registrerade-vaccinationer-covid-19/</a></span>
+                    </td>
                 </tr>
                 <tr>
                     <td><span style="font-weight: bold; font-size: 14;">Norway</span></td>
@@ -465,27 +471,49 @@
         }
     }
 
-    function make_tables_sortable() {
-        var tables = document.querySelectorAll("table.sortable");
-        for (i = 0; i < tables.length; i++) {
-            table = tables[i];
-            if (thead = table.querySelector("thead")) {
-                headers = thead.querySelectorAll("th");
-                for (j = 0; j < headers.length; j++) {
-                    headers[j].innerHTML = "<a href='#'>" + headers[j].innerText + "</a>";
-                }
-                thead.addEventListener("click", sortTableFunction(table));
-            }
-        }
-    }
+    //  sortTable(f,n)
+    //  f : 1 ascending order, -1 descending order
+    //  n : n-th child(<td>) of <tr>
+    function sortTable(f, n) {
+        var rows = $('#mytable tbody  tr').get();
 
-    function sortTableFunction(table) {
-        return function (ev) {
-            if (ev.target.tagName.toLowerCase() == 'a') {
-                sortRows(table, siblingIndex(ev.target.parentNode));
-                ev.preventDefault();
+        rows.sort(function (a, b) {
+
+            var A = getVal(a);
+            var B = getVal(b);
+
+            if (A < B) {
+                return -1 * f;
             }
-        };
+            if (A > B) {
+                return 1 * f;
+            }
+            return 0;
+        });
+
+        function getVal(elm) {
+            var v = $(elm).children('td').eq(n).text().toUpperCase();
+            if ($.isNumeric(v)) {
+                v = parseInt(v, 10);
+            }
+            return v;
+        }
+
+        $.each(rows, function (index, row) {
+            $('#mytable').children('tbody').append(row);
+        });
     }
+    var f_sl = 1; // flag to toggle the sorting order
+    var f_nm = 1; // flag to toggle the sorting order
+    $("#sl").click(function () {
+        f_sl *= -1; // toggle the sorting order
+        var n = $(this).prevAll().length;
+        sortTable(f_sl, n);
+    });
+    $("#nm").click(function () {
+        f_nm *= -1; // toggle the sorting order
+        var n = $(this).prevAll().length;
+        sortTable(f_nm, n);
+    });
 </script>
 <noscript>You need to enable JavaScript to view the full site.</noscript>
