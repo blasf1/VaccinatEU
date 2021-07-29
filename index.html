@@ -380,33 +380,28 @@
 
     download_data()
     make_tables_sortable()
-    function check_zero_value(value) {
-        if (value == 0) {
-            return "--"
-        } else {
-            return value
-        }
-    }
 
     function return_tbody(country, data) {
         var object = `<tr class="item">
-                    <td><img width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${COUNTRIES_CODES[country]}.png" />
+                    <td align="right"><img width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${COUNTRIES_CODES[country]}.png" />
                     <img width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/EU.png" /></td>
-                    <td><span style="font-size: 20px; font-weight: bold;"">${country}</span></td>
-                    <td><span style="font-size: 20px; font-weight: bold;">${check_zero_value(data.people_fully_vaccinated)}%</span></td>
-                    <td><span style="font-size: 20px;">${data.people_vaccinated}%</span></td>
-                    <td><span style="font-size: 20px;">${data.days_to_70}</span></td>
-                    <td><span style="font-size: 20px;">${data.date}</span></td>
+                    <td><span style="font-size: 18px; font-weight: bold;"">${country}</span></td>
+                    <td><span style="font-size: 18px; font-weight: bold;">${data.people_fully_vaccinated}%</span></td>
+                    <td><span style="font-size: 18px;">${data.people_vaccinated}%</span></td>
+                    <td><span style="font-size: 18px;">${data.people_vaccinated}%</span></td>
+                    <td><span style="font-size: 18px;">${data.days_to_70}</span></td>
+                    <td><span style="font-size: 18px;">${data.date}</span></td>
                     </tr>`
         if (country in NON_EU) {
             object = `<tr class="item">
-                    <td>
-                    <img style="margin-left:39px;" width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${NON_EU[country]}.png" /></td>
-                    <td><span style="font-size: 20px; font-weight: bold;"">${country}</span></td>
-                    <td><span style="font-size: 20px; font-weight: bold;">${check_zero_value(data.people_fully_vaccinated)}%</span></td>
-                    <td><span style="font-size: 20px;">${data.people_vaccinated}%</span></td>
-                    <td><span style="font-size: 20px;">${data.days_to_70}</span></td>
-                    <td><span style="font-size: 20px;">${data.date}</span></td>
+                    <td align="right">
+                    <img width="35px" src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${NON_EU[country]}.png" /></td>
+                    <td><span style="font-size: 18px; font-weight: bold;"">${country}</span></td>
+                    <td><span style="font-size: 18px; font-weight: bold;">${data.people_fully_vaccinated}%</span></td>
+                    <td><span style="font-size: 18px;">${data.people_vaccinated}%</span></td>
+                    <td><span style="font-size: 18px;">${data.people_vaccinated}%</span></td>
+                    <td><span style="font-size: 18px;">${data.days_to_70}</span></td>
+                    <td><span style="font-size: 18px;">${data.date}</span></td>
                     </tr>`
         }
         return object
@@ -417,12 +412,13 @@
         return `<table>
                   <thead>
                     <tr>
-                      <th></th>
-                      <th>Country</th>
-                      <th data-sortable="true" >People fully vaccinated</th>
-                      <th data-sortable="true" >People with at least 1 dose</th>
-                      <th data-sortable="true" >Days to 70%*</th>
-                      <th>Last update</th>
+                      <th width="10%"></th>
+                      <th width="18%">Country</th>
+                      <th>People fully vaccinated</th>
+                      <th>People with at least 1 dose</th>
+                      <th>Week on week increment</th>
+                      <th>Days to 70%*</th>
+                      <th width="12%">Last update</th>
                     </tr>
                   </thead>
                     <tbody>
