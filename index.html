@@ -437,6 +437,12 @@
             if (data["data"][country].days_to_70 < 0) {
                 data["data"][country].days_to_70 = "&#9989"
             }
+            if (data["data"][country].days_to_70 == 0) {
+                data["data"][country].days_to_70 = "--"
+            }
+            if (data["data"][country].week_on_week == 0) {
+                data["data"][country].week_on_week = "--"
+            }
 
             tbodies.push(return_tbody(country, data["data"][country]))
         })
