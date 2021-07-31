@@ -8,11 +8,38 @@
   #rank-table td,
   #rank-table th {
     padding: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
     border-bottom: 1px solid #ddd;
     vertical-align: center;
   }
 
   #rank-table th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    border-bottom: 1px solid;
+    background-color: #FFFF;
+    color: black;
+    vertical-align: center;
+  }
+
+  #sources {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #sources td,
+  #sources th {
+    padding: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: center;
+  }
+
+  #sources th {
     padding-top: 5px;
     padding-bottom: 5px;
     text-align: left;
@@ -171,11 +198,11 @@
     <p style="padding-top: 20px;" style="padding-bottom: 50px;">Shares are calculated using population data from
       Eurostat. European Union states are updated as soon as the data is published on the source with a maximum delay of
       1 hour. Non-EU countries are updated once a day in the morning. </p>
-    <table class="table">
+    <table class="table" id="sources">
       <thead>
         <tr>
-          <th scope="col">Country</th>
-          <th scope="col">Source</th>
+          <th width="12%">Country</th>
+          <th>Source</th>
         </tr>
       </thead>
       <tbody>
