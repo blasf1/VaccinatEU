@@ -1,397 +1,423 @@
 <style>
-    #ranking {
-        font-family: Arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
+  #rank-table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
 
-    #ranking td,
-    #ranking th {
-        padding: 8px;
-        border-bottom: 1px solid #ddd;
-        vertical-align: center;
-    }
+  #rank-table td,
+  #rank-table th {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: center;
+  }
 
-    #ranking th {
-        padding-top: 5px;
-        padding-bottom: 5px;
-        text-align: left;
-        border-bottom: 1px solid;
-        background-color: #FFFF;
-        color: black;
-        vertical-align: center;
-    }
+  #rank-table th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    border-bottom: 1px solid;
+    background-color: #FFFF;
+    color: black;
+    vertical-align: center;
+  }
 </style>
 <!DOCTYPE HTML>
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
-    <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script
-        type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <!-- Custom Theme files -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
+  <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script
+    type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+  <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+  <!-- Custom Theme files -->
 
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/move-top.js"></script>
-    <script type="text/javascript" src="js/easing.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            $(".scroll").click(function (event) {
-                event.preventDefault();
-                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1200);
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
+  <link href="css/style.css" rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/move-top.js"></script>
+  <script type="text/javascript" src="js/easing.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+      $(".scroll").click(function (event) {
+        event.preventDefault();
+        $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1200);
+      });
+    });
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function () {
 
-            $().UItoTop({ easingType: 'easeOutQuart' });
-        });
-    </script>
-    <script src="js/jquery.chocolat.js"></script>
-    <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="all" />
-    <!--light-box-files -->
-    <script type="text/javascript">
-        $(function () {
-            $('#example1 a').Chocolat();
-        });
-    </script>
-    <script type="text/javascript">
-        $(function () {
-            $('#portfolio a').Chocolat();
-        });
-    </script>
-    <!-- animation-effect -->
-    <link href="css/animate.min.css" rel="stylesheet">
-    <script src="js/wow.min.js"></script>
-    <script>
-        new WOW().init();
-    </script>
-    <!-- //animation-effect -->
+      $().UItoTop({ easingType: 'easeOutQuart' });
+    });
+  </script>
+  <script src="js/jquery.chocolat.js"></script>
+  <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="all" />
+  <!--light-box-files -->
+  <script type="text/javascript">
+    $(function () {
+      $('#example1 a').Chocolat();
+    });
+  </script>
+  <script type="text/javascript">
+    $(function () {
+      $('#portfolio a').Chocolat();
+    });
+  </script>
+  <!-- animation-effect -->
+  <link href="css/animate.min.css" rel="stylesheet">
+  <script src="js/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+  <!-- //animation-effect -->
 
-    <!-- sortable tables-->
+  <!-- sortable tables-->
 
 </head>
 
 <body>
 
 
-    <div class="banner w3l-1">
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header wow fadeInLeft animated animated" data-wow-delay=".5s"
-                    style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInLeft;">
+  <div class="banner w3l-1">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header wow fadeInLeft animated animated" data-wow-delay=".5s"
+          style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInLeft;">
 
-                    <!--toggle button-->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <img width="50px" href="#"
-                        src="https://github.com/blasf1/VaccinatEU/raw/main/images/profilepicture.png" />
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#graphs" class="scroll">Graphs</a></li>
-                        <li><a href="#ranking-header" class="scroll">Current situation</a></li>
-                        <li><a href="#sources" class="scroll">Sources</a></li>
-                        <li><a href="#contact" class="scroll">About us</a></li>
+          <!--toggle button-->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+            aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <img width="50px" href="#" src="https://github.com/blasf1/VaccinatEU/raw/main/images/profilepicture.png" />
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#graphs" class="scroll">Graphs</a></li>
+            <li><a href="#ranking-header" class="scroll">Current situation</a></li>
+            <li><a href="#sources" class="scroll">Sources</a></li>
+            <li><a href="#contact" class="scroll">About us</a></li>
 
-                    </ul>
+          </ul>
 
-                    <div class="social wow fadeInRight animated animated" data-wow-delay=".5s"
-                        style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
-                        <ul>
-                            <li><a href="https://twitter.com/VaccinationEu" class="facebook twitter"> </a></li>
-                        </ul>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </nav>
-    </div>
+          <div class="social wow fadeInRight animated animated" data-wow-delay=".5s"
+            style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
+            <ul>
+              <li><a href="https://twitter.com/VaccinationEu" class="facebook twitter"> </a></li>
+              <li><a href="https://twitter.com/VaccinationEu" class="facebook twitter"> </a></li>
+            </ul>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
 
-    <div id="intro" class="container" style="padding-top: 100px;">
-        <h2>@VaccinationEU</h2>
-        <div style="padding-top: 20px;"></div>
-        <p>Welcome to @VaccinationEU website. You'll find extended data that you can't find on our Twitter bot and all
-            annotations about the sources. Enjoy!</p>
+  <div id="intro" class="container" style="padding-top: 100px;">
+    <h2>@VaccinationEU</h2>
+    <div style="padding-top: 20px;"></div>
+    <p>Welcome to @VaccinationEU website. You'll find extended data that you can't find on our Twitter bot and all
+      annotations about the sources. Enjoy!</p>
+  </div>
+
+  <div id="rank-header" class="container" style="padding-top: 50px;">
+    <h2 style="font-weight: bold;">Current situation</h2>
+    <p style="padding-top: 20px;">By default, the table is sorted by fully vaccinated people in descending order.</p>
+    <p>Click on the headers to sort the table as you wish.</p>
+    <div style="padding-top: 30px;" id="rank">
+      <script src="./js/sorttable.js"></script>
+      <table class="sortable" id="rank-table">
+        <thead>
+          <tr>
+            <th class="sorttable_nosort" width="10%"></th>
+            <th class="sorttable_nosort" width="18%">Country</th>
+            <th>People fully vaccinated</th>
+            <th>People with at least 1 dose</th>
+            <th>Week on week increment</th>
+            <th class="sorttable_nosort">Days to 70%*</th>
+            <th class="sorttable_nosort" width="12%">Last update</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+      </table>
     </div>
-    <div id="ranking-header" class="container" style="padding-top: 50px;">
-        <h2 style="font-weight: bold;">Current situation</h2>
-        <div style="padding-top: 30px;" id="ranking"></div>
-        <p>*70% of people fully vaccinated. This is just a prediction based on the average amount of second doses or
-            single-dose vaccines administered in the last 7 days </p>
-    </div>
-    <div id="graphs" class="container" style="padding-top: 50px;">
-        <h2 style="font-weight: bold;">Share of people vaccinated against COVID-19</h2>
-        <div id="includedContent"></div>
-        <div w3-include-html="content.html"></div>
-        <iframe class="frame" is="x-frame-bypass" autosize=true style="border:none; padding-top: 20px;"
-            seamless="seamless"
-            src="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html"
-            width=850 height=800></iframe>
-    </div>
-    <div id="sources" class="container" style="padding-top: 20px;">
-        <h2 style="font-weight: bold;">Sources</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Country</th>
-                    <th scope="col">Source</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">European Union</span></td>
-                    <td><span style="font-size: 14;">Our World in Data</span></td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Austria</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://info.gesundheitsministerium.gv.at/opendata/">https://info.gesundheitsministerium.gv.at/opendata/</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Belgium</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://epistat.wiv-isp.be/covid/">https://epistat.wiv-isp.be/covid/</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Bulgaria</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://coronavirus.bg/bg/statistika">https://coronavirus.bg/bg/statistika</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Croatia</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://www.koronavirus.hr">https://www.koronavirus.hr</a></span></td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Cyprus</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://www.moh.gov.cy/moh/moh.nsf/All/0EFA027144C9E54AC22586BE0032B2F5">https://www.moh.gov.cy/moh/moh.nsf/All/0EFA027144C9E54AC22586BE0032B2F5</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Czechia</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://onemocneni-aktualne.mzcr.cz/covid-19">https://onemocneni-aktualne.mzcr.cz/covid-19</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Denmark</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://covid19.ssi.dk/overvagningsdata/download-fil-med-vaccinationsdata">https://covid19.ssi.dk/overvagningsdata/download-fil-med-vaccinationsdata</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Estonia</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://opendata.digilugu.ee">https://opendata.digilugu.ee</a></span></td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Finland</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://sampo.thl.fi/pivot/prod/en/vaccreg/cov19cov/fact_cov19cov?column=measure-533185.533172.433796.533175&row=cov_vac_dose-533174L">https://sampo.thl.fi/pivot/prod/en/vaccreg/cov19cov/fact_cov19cov?column=measure-533185.533172.433796.533175&row=cov_vac_dose-533174L</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">France</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-personnes-vaccinees-contre-la-covid-19-1/">https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-personnes-vaccinees-contre-la-covid-19-1/</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Germany</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://impfdashboard.de/">https://impfdashboard.de/</a></span></td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Greece</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://www.data.gov.gr/datasets/mdg_emvolio/">https://www.data.gov.gr/datasets/mdg_emvolio/</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Hungary</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://koronavirus.gov.hu//cikkek/5-millio-606-ezer-beoltott-74-az-uj-fertozott-elhunyt-4-beteg">https://koronavirus.gov.hu//cikkek/5-millio-606-ezer-beoltott-74-az-uj-fertozott-elhunyt-4-beteg</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Ireland</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://covid19ireland-geohive.hub.arcgis.com/">https://covid19ireland-geohive.hub.arcgis.com/</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Italy</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati/somministrazioni-vaccini-latest.csv">https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati/somministrazioni-vaccini-latest.csv</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Latvia</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://data.gov.lv/dati/eng/dataset/covid19-vakcinacijas">https://data.gov.lv/dati/eng/dataset/covid19-vakcinacijas</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Lithuania</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://experience.arcgis.com/experience/cab84dcfe0464c2a8050a78f817924ca/page/page_3/">https://experience.arcgis.com/experience/cab84dcfe0464c2a8050a78f817924ca/page/page_3/</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Luxembourg</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://covid19.public.lu/fr.html">https://covid19.public.lu/fr.html</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Malta</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://github.com/COVID19-Malta/COVID19-Cases">https://github.com/COVID19-Malta/COVID19-Cases</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Netherlands</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://github.com/YorickBleijenberg/COVID_data_RIVM_Netherlands/tree/master/vaccination/daily-dashboard-update">https://github.com/YorickBleijenberg/COVID_data_RIVM_Netherlands/tree/master/vaccination/daily-dashboard-update</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Poland</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://www.gov.pl/web/szczepimysie/raport-szczepien-przeciwko-covid-19">https://www.gov.pl/web/szczepimysie/raport-szczepien-przeciwko-covid-19</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Portugal</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://github.com/dssg-pt/covid19pt-data">https://github.com/dssg-pt/covid19pt-data</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Romania</span></td>
-                    <td><span style="font-size: 14;"><a href="https://datelazi.ro/">https://datelazi.ro/</a></span></td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Slovakia</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://github.com/Institut-Zdravotnych-Analyz/covid19-data">https://github.com/Institut-Zdravotnych-Analyz/covid19-data</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Slovenia</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://covid-19.sledilnik.org/en/stats">https://covid-19.sledilnik.org/en/stats</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Spain</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/vacunaCovid19.htm">https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/vacunaCovid19.htm</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Sweden</span></td>
-                    <td><span style="font-size: 14;"><a
-                                href="https://www.folkhalsomyndigheten.se/smittskydd-beredskap/utbrott/aktuella-utbrott/covid-19/vaccination-mot-covid-19/statistik/statistik-over-registrerade-vaccinationer-covid-19/">https://www.folkhalsomyndigheten.se/smittskydd-beredskap/utbrott/aktuella-utbrott/covid-19/vaccination-mot-covid-19/statistik/statistik-over-registrerade-vaccinationer-covid-19/</a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Norway</span></td>
-                    <td><span style="font-size: 14;">Our World in Data</span></td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Iceland</span></td>
-                    <td><span style="font-size: 14;">Our World in Data</span></td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">Switzerland</span></td>
-                    <td><span style="font-size: 14;">Our World in Data</span></td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">United Kingdom</span></td>
-                    <td><span style="font-size: 14;">Our World in Data</span></td>
-                </tr>
-                <tr>
-                    <td><span style="font-weight: bold; font-size: 14;">United States</span></td>
-                    <td><span style="font-size: 14;">Our World in Data</span></td>
-                </tr>
-            </tbody>
-        </table>`
-    </div>
-    <div id="about" class="container" style="padding-top: 20px;">
-        <h2 style="font-weight: bold;">Contact</h2>
-    </div>
+    <p>*70% of people fully vaccinated. This is just a prediction based on the average amount of second doses or
+      single-dose vaccines administered in the last 7 days </p>
+  </div>
+
+  <div id="graphs" class="container" style="padding-top: 50px;">
+    <h2 style="font-weight: bold;">Share of people vaccinated against COVID-19</h2>
+    <iframe class="frame" is="x-frame-bypass" autosize=true style="border:none; padding-top: 20px;" seamless="seamless"
+      src="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html" width=850
+      height=800></iframe>
+  </div>
+
+  <div id="sources" class="container" style="padding-top: 20px;">
+    <h2 style="font-weight: bold;">Sources</h2>
+    <p style="padding-top: 20px;" style="padding-bottom: 50px;">Shares are calculated using population data from
+      Eurostat. European Union states are updated as soon as the data is published on the source with a maximum delay of
+      1 hour. Non-EU countries are updated once a day in the morning. </p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Country</th>
+          <th scope="col">Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">European Union</span></td>
+          <td><span style="font-size: 14;">Our World in Data</span></td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Austria</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://info.gesundheitsministerium.gv.at/opendata/">https://info.gesundheitsministerium.gv.at/opendata/</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Belgium</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://epistat.wiv-isp.be/covid/">https://epistat.wiv-isp.be/covid/</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Bulgaria</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://coronavirus.bg/bg/statistika">https://coronavirus.bg/bg/statistika</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Croatia</span></td>
+          <td><span style="font-size: 14;"><a href="https://www.koronavirus.hr">https://www.koronavirus.hr</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Cyprus</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://www.moh.gov.cy/moh/moh.nsf/All/0EFA027144C9E54AC22586BE0032B2F5">https://www.moh.gov.cy/moh/moh.nsf/All/0EFA027144C9E54AC22586BE0032B2F5</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Czechia</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://onemocneni-aktualne.mzcr.cz/covid-19">https://onemocneni-aktualne.mzcr.cz/covid-19</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Denmark</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://covid19.ssi.dk/overvagningsdata/download-fil-med-vaccinationsdata">https://covid19.ssi.dk/overvagningsdata/download-fil-med-vaccinationsdata</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Estonia</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://opendata.digilugu.ee">https://opendata.digilugu.ee</a></span></td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Finland</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://sampo.thl.fi/pivot/prod/en/vaccreg/cov19cov/fact_cov19cov?column=measure-533185.533172.433796.533175&row=cov_vac_dose-533174L">https://sampo.thl.fi/pivot/prod/en/vaccreg/cov19cov/fact_cov19cov?column=measure-533185.533172.433796.533175&row=cov_vac_dose-533174L</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">France*</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-personnes-vaccinees-contre-la-covid-19-1/">https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-personnes-vaccinees-contre-la-covid-19-1/</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Germany</span></td>
+          <td><span style="font-size: 14;"><a href="https://impfdashboard.de/">https://impfdashboard.de/</a></span></td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Greece</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://www.data.gov.gr/datasets/mdg_emvolio/">https://www.data.gov.gr/datasets/mdg_emvolio/</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Hungary</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://koronavirus.gov.hu//cikkek/5-millio-606-ezer-beoltott-74-az-uj-fertozott-elhunyt-4-beteg">https://koronavirus.gov.hu//cikkek/5-millio-606-ezer-beoltott-74-az-uj-fertozott-elhunyt-4-beteg</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Ireland</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://covid19ireland-geohive.hub.arcgis.com/">https://covid19ireland-geohive.hub.arcgis.com/</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Italy</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati/somministrazioni-vaccini-latest.csv">https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati/somministrazioni-vaccini-latest.csv</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Latvia</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://data.gov.lv/dati/eng/dataset/covid19-vakcinacijas">https://data.gov.lv/dati/eng/dataset/covid19-vakcinacijas</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Lithuania</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://experience.arcgis.com/experience/cab84dcfe0464c2a8050a78f817924ca/page/page_3/">https://experience.arcgis.com/experience/cab84dcfe0464c2a8050a78f817924ca/page/page_3/</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Luxembourg</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://covid19.public.lu/fr.html">https://covid19.public.lu/fr.html</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Malta</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://github.com/COVID19-Malta/COVID19-Cases">https://github.com/COVID19-Malta/COVID19-Cases</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Netherlands</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://github.com/YorickBleijenberg/COVID_data_RIVM_Netherlands/tree/master/vaccination/daily-dashboard-update">https://github.com/YorickBleijenberg/COVID_data_RIVM_Netherlands/tree/master/vaccination/daily-dashboard-update</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Poland</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://www.gov.pl/web/szczepimysie/raport-szczepien-przeciwko-covid-19">https://www.gov.pl/web/szczepimysie/raport-szczepien-przeciwko-covid-19</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Portugal</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://github.com/dssg-pt/covid19pt-data">https://github.com/dssg-pt/covid19pt-data</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Romania</span></td>
+          <td><span style="font-size: 14;"><a href="https://datelazi.ro/">https://datelazi.ro/</a></span></td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Slovakia</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://github.com/Institut-Zdravotnych-Analyz/covid19-data">https://github.com/Institut-Zdravotnych-Analyz/covid19-data</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Slovenia</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://covid-19.sledilnik.org/en/stats">https://covid-19.sledilnik.org/en/stats</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Spain</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/vacunaCovid19.htm">https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/vacunaCovid19.htm</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Sweden</span></td>
+          <td><span style="font-size: 14;"><a
+                href="https://www.folkhalsomyndigheten.se/smittskydd-beredskap/utbrott/aktuella-utbrott/covid-19/vaccination-mot-covid-19/statistik/statistik-over-registrerade-vaccinationer-covid-19/">https://www.folkhalsomyndigheten.se/smittskydd-beredskap/utbrott/aktuella-utbrott/covid-19/vaccination-mot-covid-19/statistik/statistik-over-registrerade-vaccinationer-covid-19/</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Norway</span></td>
+          <td><span style="font-size: 14;">Our World in Data</span></td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Iceland</span></td>
+          <td><span style="font-size: 14;">Our World in Data</span></td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">Switzerland</span></td>
+          <td><span style="font-size: 14;">Our World in Data</span></td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">United Kingdom</span></td>
+          <td><span style="font-size: 14;">Our World in Data</span></td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: bold; font-size: 14;">United States</span></td>
+          <td><span style="font-size: 14;">Our World in Data</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="padding-top: 5px;">*France counts as fully vaccinated people those with one dose of a double dose vaccine
+      who had a previous infection. We are representing the data according to the official interpretation of fully
+      vaccinated of the French government. However, you can find other interpretations, like in Our World in Data, where
+      people with previous infections and a single dose are not counted as fully vaccinated.</p>
+
+  </div>
+  <div id="about" class="container" style="padding-top: 20px;">
+    <h2 style="font-weight: bold;">About us</h2>
+  </div>
 </body>
 
 </html>
 
 <script>
-    COUNTRIES_CODES = {
-        "Austria": "AT",
-        "Belgium": "BE",
-        "Bulgaria": "BG",
-        "Croatia": "HR",
-        "Cyprus": "CY",
-        "Czechia": "CZ",
-        "Denmark": "DK",
-        "Estonia": "EE",
-        "Finland": "FI",
-        "France": "FR",
-        "Germany": "DE",
-        "Greece": "GR",
-        "Hungary": "HU",
-        "Ireland": "IE",
-        "Italy": "IT",
-        "Latvia": "LV",
-        "Lithuania": "LT",
-        "Luxembourg": "LU",
-        "Malta": "MT",
-        "Netherlands": "NL",
-        "Poland": "PL",
-        "Portugal": "PT",
-        "Romania": "RO",
-        "Slovakia": "SK",
-        "Slovenia": "SI",
-        "Spain": "ES",
-        "Sweden": "SE"
-    }
+  COUNTRIES_CODES = {
+    "Austria": "AT",
+    "Belgium": "BE",
+    "Bulgaria": "BG",
+    "Croatia": "HR",
+    "Cyprus": "CY",
+    "Czechia": "CZ",
+    "Denmark": "DK",
+    "Estonia": "EE",
+    "Finland": "FI",
+    "France": "FR",
+    "Germany": "DE",
+    "Greece": "GR",
+    "Hungary": "HU",
+    "Ireland": "IE",
+    "Italy": "IT",
+    "Latvia": "LV",
+    "Lithuania": "LT",
+    "Luxembourg": "LU",
+    "Malta": "MT",
+    "Netherlands": "NL",
+    "Poland": "PL",
+    "Portugal": "PT",
+    "Romania": "RO",
+    "Slovakia": "SK",
+    "Slovenia": "SI",
+    "Spain": "ES",
+    "Sweden": "SE"
+  }
 
-    NON_EU = {
-        "European Union": "EU",
-        "Norway": "NO",
-        "Iceland": "IS",
-        "Switzerland": "CH",
-        "United Kingdom": "UK",
-        "United States": "US"
-    }
+  NON_EU = {
+    "European Union": "EU",
+    "Norway": "NO",
+    "Iceland": "IS",
+    "Switzerland": "CH",
+    "United Kingdom": "UK",
+    "United States": "US"
+  }
 
-    download_data()
-    make_tables_sortable()
+  download_data()
 
-    function return_tbody(country, data) {
-        var object = `<tr class="item">
+  function return_tbody(country, data) {
+    var object = `<tr class="item">
                     <td align="right"><img width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${COUNTRIES_CODES[country]}.png" />
                     <img width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/EU.png" /></td>
                     <td><span style="font-size: 18px; font-weight: bold;"">${country}</span></td>
@@ -401,8 +427,8 @@
                     <td><span style="font-size: 18px;">${data.days_to_70}</span></td>
                     <td><span style="font-size: 18px;">${data.date}</span></td>
                     </tr>`
-        if (country in NON_EU) {
-            object = `<tr class="item">
+    if (country in NON_EU) {
+      object = `<tr class="item">
                     <td align="right">
                     <img width="35px" src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${NON_EU[country]}.png" /></td>
                     <td><span style="font-size: 18px; font-weight: bold;"">${country}</span></td>
@@ -412,108 +438,67 @@
                     <td><span style="font-size: 18px;">${data.days_to_70}</span></td>
                     <td><span style="font-size: 18px;">${data.date}</span></td>
                     </tr>`
-        }
-        return object
     }
+    return object
+  }
 
-    function return_table(list_tbodies) {
-        let tbodies = list_tbodies.join('')
-        return `<table>
-                  <thead>
-                    <tr>
-                      <th width="10%"></th>
-                      <th width="18%">Country</th>
-                      <th>People fully vaccinated</th>
-                      <th>People with at least 1 dose</th>
-                      <th>Week on week increment</th>
-                      <th>Days to 70%*</th>
-                      <th width="12%">Last update</th>
-                    </tr>
-                  </thead>
-                    <tbody>
-                        ${tbodies}
-                    </tbody>
-                   </table>
-                   `
+  function return_table(list_tbodies) {
+    let tbodies = list_tbodies.join('')
+    return tbodies
+  }
+
+  function build_table(data) {
+    var tbodies = []
+
+    data["countries_sorted"].map(country => {
+      if (data["data"][country].days_to_70 < 0) {
+        data["data"][country].days_to_70 = "&#9989"
+      }
+      if (data["data"][country].days_to_70 == 0) {
+        data["data"][country].days_to_70 = "--"
+      }
+      if (data["data"][country].week_on_week == 0) {
+        data["data"][country].week_on_week = "--"
+      }
+
+      tbodies.push(return_tbody(country, data["data"][country]))
+    })
+
+    document.getElementById("tbody").innerHTML = return_table(tbodies);
+  }
+
+  function build_table_sortable(data) {
+    var tbodies = []
+
+    data["countries_sorted"].map(country => {
+      if (data["data"][country].days_to_70 < 0) {
+        data["data"][country].days_to_70 = "&#9989"
+      }
+      if (data["data"][country].days_to_70 == 0) {
+        data["data"][country].days_to_70 = "--"
+      }
+      if (data["data"][country].week_on_week == 0) {
+        data["data"][country].week_on_week = "--"
+      }
+
+      tbodies.push(return_tbody(country, data["data"][country]))
+    })
+
+    document.getElementById("tbody").innerHTML = return_table(tbodies);
+  }
+
+  function download_data() {
+    var requestURL = `https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/vaccination.json`;
+    var request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+    request.onload = function () {
+      var data = request.response;
+      //build_table(data);
+      build_table_sortable(data);
     }
+  }
 
-    function build_table(data) {
-        var tbodies = []
-
-        data["countries_sorted"].map(country => {
-            if (data["data"][country].days_to_70 < 0) {
-                data["data"][country].days_to_70 = "&#9989"
-            }
-            if (data["data"][country].days_to_70 == 0) {
-                data["data"][country].days_to_70 = "--"
-            }
-            if (data["data"][country].week_on_week == 0) {
-                data["data"][country].week_on_week = "--"
-            }
-
-            tbodies.push(return_tbody(country, data["data"][country]))
-        })
-
-        document.getElementById("ranking").innerHTML = return_table(tbodies);
-        sorttable.makeSortable(document.getElementById("ranking"));
-    }
-
-
-    function download_data() {
-        var requestURL = `https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/vaccination.json`;
-        var request = new XMLHttpRequest();
-        request.open('GET', requestURL);
-        request.responseType = 'json';
-        request.send();
-        request.onload = function () {
-            var data = request.response;
-            build_table(data);
-        }
-    }
-
-    //  sortTable(f,n)
-    //  f : 1 ascending order, -1 descending order
-    //  n : n-th child(<td>) of <tr>
-    function sortTable(f, n) {
-        var rows = $('#mytable tbody  tr').get();
-
-        rows.sort(function (a, b) {
-
-            var A = getVal(a);
-            var B = getVal(b);
-
-            if (A < B) {
-                return -1 * f;
-            }
-            if (A > B) {
-                return 1 * f;
-            }
-            return 0;
-        });
-
-        function getVal(elm) {
-            var v = $(elm).children('td').eq(n).text().toUpperCase();
-            if ($.isNumeric(v)) {
-                v = parseInt(v, 10);
-            }
-            return v;
-        }
-
-        $.each(rows, function (index, row) {
-            $('#mytable').children('tbody').append(row);
-        });
-    }
-    var f_sl = 1; // flag to toggle the sorting order
-    var f_nm = 1; // flag to toggle the sorting order
-    $("#sl").click(function () {
-        f_sl *= -1; // toggle the sorting order
-        var n = $(this).prevAll().length;
-        sortTable(f_sl, n);
-    });
-    $("#nm").click(function () {
-        f_nm *= -1; // toggle the sorting order
-        var n = $(this).prevAll().length;
-        sortTable(f_nm, n);
-    });
 </script>
 <noscript>You need to enable JavaScript to view the full site.</noscript>
