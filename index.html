@@ -47,19 +47,109 @@
     color: black;
     vertical-align: center;
   }
+
+  .footer-dark {
+  padding:50px 0;
+  color:#f0f9ff;
+  background-color:#282d32;
+}
+
+.footer-dark h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-dark ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-dark ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.6;
+}
+
+.footer-dark ul a:hover {
+  opacity:0.8;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item:not(.social) {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+.footer-dark .item.text {
+  margin-bottom:36px;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item.text {
+    margin-bottom:0;
+  }
+}
+
+.footer-dark .item.text p {
+  opacity:0.6;
+  margin-bottom:0;
+}
+
+.footer-dark .item.social {
+  text-align:center;
+}
+
+@media (max-width:991px) {
+  .footer-dark .item.social {
+    text-align:center;
+    margin-top:20px;
+  }
+}
+
+.footer-dark .item.social > a {
+  font-size:20px;
+  width:36px;
+  height:36px;
+  line-height:36px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+  margin:0 8px;
+  color:#fff;
+  opacity:0.75;
+}
+
+.footer-dark .item.social > a:hover {
+  opacity:0.9;
+}
+
+.footer-dark .copyright {
+  text-align:center;
+  padding-top:24px;
+  opacity:0.3;
+  font-size:13px;
+  margin-bottom:0;
+}
 </style>
 <!DOCTYPE HTML>
 <html>
 
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
   <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <script
-    type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
   <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
   <!-- Custom Theme files -->
 
@@ -67,7 +157,6 @@
   <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
   <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/move-top.js"></script>
   <script type="text/javascript" src="js/easing.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function ($) {
@@ -103,9 +192,6 @@
     new WOW().init();
   </script>
   <!-- //animation-effect -->
-
-  <!-- sortable tables-->
-
 </head>
 
 <body>
@@ -132,7 +218,7 @@
             <li><a href="#ranking-header" class="scroll">Current situation</a></li>
             <li><a href="#graphs" class="scroll">Graphs</a></li>
             <li><a href="#sources" class="scroll">Sources</a></li>
-            <li><a href="#contact" class="scroll">About us</a></li>
+            <li><a href="#about" class="scroll">About us</a></li>
 
           </ul>
 
@@ -157,7 +243,8 @@
 
   <div id="rank-header" class="container" style="padding-top: 50px;">
     <h2 style="font-weight: bold;">Current situation</h2>
-    <p style="padding-top: 20px;">By default, the table is sorted by fully vaccinated people in descending order.</p>
+    <p style="padding-top: 20px;">Here you can find a table with all EU countries vaccination shares and a few extra
+      countries to provide context. By default, the table is sorted by fully vaccinated people in descending order.</p>
     <p>Click on the headers to sort the table as you wish.</p>
     <div style="padding-top: 30px;" id="rank">
       <script src="./js/sorttable.js"></script>
@@ -191,7 +278,7 @@
 
   <div id="sources" class="container" style="padding-top: 20px;">
     <h2 style="font-weight: bold;">Sources</h2>
-    
+
     <p style="padding-top: 20px;" style="padding-bottom: 50px;">Shares are calculated using population data from
       Eurostat. European Union states are updated as soon as the data is published on the source with a maximum delay of
       1 hour. Non-EU countries are updated once a day in the morning. </p>
@@ -391,11 +478,35 @@
       people with previous infections and a single dose are not counted as fully vaccinated.</p>
   </div>
 
-  <div id="about" class="container" style="padding-top: 20px;">
+  <div id="about" class="container" style="padding-top: 40px; padding-bottom: 20px">
     <h2 style="font-weight: bold;">About us</h2>
-  </div>
-</body>
+    <p style="padding-top: 20px;">This bot has been created by Blas Gómez (<a
+        href="https://twitter.com/blasf1">@blasf1</a>) and Juan Carlos Alfaro (<a
+        href="https://twitter.com/alfaro96_">@alfaro96_</a>). You can find the whole project and all the datasets with
+      the published data on <a href="https://github.com/blasf1/covid_vaccine_progress_bot/">GitHub</a>.
 
+  </div>
+
+
+  <div class="footer-dark">
+    <footer>
+        <div style="text-align:right;" class="container">
+            <div>
+              <a href="https://orcid.org/0000-0001-5739-9276">
+                <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/ORCID_logo.svg/200px-ORCID_logo.svg.png' alt='ORCID' height='30' />
+              </a>
+            </div>
+            <div style="padding-top: 5px">
+              <a href="https://github.com/blasf1">
+                <img src='./images/github.png' alt='github' height='36' />
+              </a>
+            </div>
+            <p class="copyright">Blas Gómez © 2021</p>
+        </div>
+    </footer>
+</div>
+
+</body>
 </html>
 
 <script>
