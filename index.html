@@ -592,7 +592,7 @@
     return tbodies
   }
 
-  function build_table(data) {
+  function build_table_sortable(data) {
     var tbodies = []
 
     data["countries_sorted"].map(country => {
@@ -610,26 +610,6 @@
       }
       if (data["data"][country].adults_vaccinated < 0) {
         data["data"][country].adults_vaccinated = "--"
-      }
-
-      tbodies.push(return_tbody(country, data["data"][country]))
-    })
-
-    document.getElementById("tbody").innerHTML = return_table(tbodies);
-  }
-
-  function build_table_sortable(data) {
-    var tbodies = []
-
-    data["countries_sorted"].map(country => {
-      if (data["data"][country].days_to_70 < 0) {
-        data["data"][country].days_to_70 = "&#9989"
-      }
-      if (data["data"][country].days_to_70 == 0) {
-        data["data"][country].days_to_70 = "--"
-      }
-      if (data["data"][country].week_on_week == 0) {
-        data["data"][country].week_on_week = "--"
       }
 
       tbodies.push(return_tbody(country, data["data"][country]))
