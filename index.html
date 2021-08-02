@@ -3,6 +3,7 @@
     font-family: Arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    font-size:14px;
   }
 
   #rank-table td,
@@ -254,12 +255,14 @@
         <thead>
           <tr>
             <th class="sorttable_nosort" width="90px"></th>
-            <th class="sorttable_nosort" width="18%">Country</th>
+            <th class="sorttable_nosort" width="15%">Country</th>
             <th>People fully vaccinated</th>
+            <th>Adults fully vaccinated</th>
             <th>People with at least 1 dose</th>
-            <th>Week on week increment</th>
-            <th class="sorttable_nosort">Days to 70%*</th>
-            <th class="sorttable_nosort" width="140px">Last update</th>
+            <th>Adults with at least 1 dose</th>
+            <th>Week on week increment*</th>
+            <th class="sorttable_nosort">Days to 70%**</th>
+            <th class="sorttable_nosort" width="110px">Last update</th>
           </tr>
         </thead>
         <tbody id="tbody">
@@ -267,8 +270,9 @@
         </tbody>
       </table>
     </div>
-    <p>*70% of people fully vaccinated. This is just a prediction based on the average amount of second doses or
-      single-dose vaccines administered in the last 7 days </p>
+    <p>*increment of people fully vaccinated. </p>
+    <p>**70% of people fully vaccinated. This is just a prediction based on the average amount of second doses or
+      single-dose vaccines administered in the last 7 days. </p>
   </div>
 
   <div id="graphs" class="container" style="padding-top: 50px;">
@@ -555,25 +559,29 @@
 
   function return_tbody(country, data) {
     var object = `<tr class="item">
-                    <td align="right"><img width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${COUNTRIES_CODES[country]}.png" />
-                    <img width="35px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/EU.png" /></td>
-                    <td><span style="font-size: 18px; font-weight: bold;"">${country}</span></td>
-                    <td><span style="font-size: 18px; font-weight: bold;">${data.people_fully_vaccinated}%</span></td>
-                    <td><span style="font-size: 18px;">${data.people_vaccinated}%</span></td>
-                    <td><span style="font-size: 18px;">+${data.week_on_week}%</span></td>
-                    <td><span style="font-size: 18px;">${data.days_to_70}</span></td>
-                    <td><span style="font-size: 18px;">${data.date}</span></td>
+                    <td align="right"><img width="33px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${COUNTRIES_CODES[country]}.png" />
+                    <img width="33px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/EU.png" /></td>
+                    <td><span style="font-size: 16px; font-weight: bold;"">${country}</span></td>
+                    <td><span style="font-size: 16px; font-weight: bold;">${data.people_fully_vaccinated}%</span></td>
+                    <td><span style="font-size: 16px;">${data.adults_fully_vaccinated}%</span></td>
+                    <td><span style="font-size: 16px; font-weight: bold;">${data.people_vaccinated}%</span></td>
+                    <td><span style="font-size: 16px;">${data.adults_vaccinated}%</span></td>
+                    <td><span style="font-size: 16px;">+${data.week_on_week}%</span></td>
+                    <td><span style="font-size: 16px;">${data.days_to_70}</span></td>
+                    <td><span style="font-size: 16px;">${data.date}</span></td>
                     </tr>`
     if (country in NON_EU) {
       object = `<tr class="item">
                     <td align="right">
-                    <img width="35px" src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${NON_EU[country]}.png" /></td>
-                    <td><span style="font-size: 18px; font-weight: bold;"">${country}</span></td>
-                    <td><span style="font-size: 18px; font-weight: bold;">${data.people_fully_vaccinated}%</span></td>
-                    <td><span style="font-size: 18px;">${data.people_vaccinated}%</span></td>
-                    <td><span style="font-size: 18px;">+${data.week_on_week}%</span></td>
-                    <td><span style="font-size: 18px;">${data.days_to_70}</span></td>
-                    <td><span style="font-size: 18px;">${data.date}</span></td>
+                    <img width="33px" src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${NON_EU[country]}.png" /></td>
+                    <td><span style="font-size: 16px; font-weight: bold;"">${country}</span></td>
+                    <td><span style="font-size: 16px; font-weight: bold;">${data.people_fully_vaccinated}%</span></td>
+                    <td><span style="font-size: 16px;">${data.adults_fully_vaccinated}%</span></td>
+                    <td><span style="font-size: 16px; font-weight: bold;">${data.people_vaccinated}%</span></td>
+                    <td><span style="font-size: 16px;">${data.adults_vaccinated}%</span></td>
+                    <td><span style="font-size: 16px;">+${data.week_on_week}%</span></td>
+                    <td><span style="font-size: 16px;">${data.days_to_70}</span></td>
+                    <td><span style="font-size: 16px;">${data.date}</span></td>
                     </tr>`
     }
     return object
