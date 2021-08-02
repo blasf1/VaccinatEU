@@ -605,6 +605,12 @@
       if (data["data"][country].week_on_week == 0) {
         data["data"][country].week_on_week = "--"
       }
+      if (data["data"][country].adults_fully_vaccinated < 0) {
+        data["data"][country].adults_fully_vaccinated = "--"
+      }
+      if (data["data"][country].adults_vaccinated < 0) {
+        data["data"][country].adults_vaccinated = "--"
+      }
 
       tbodies.push(return_tbody(country, data["data"][country]))
     })
