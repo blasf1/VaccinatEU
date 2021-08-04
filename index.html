@@ -138,6 +138,22 @@
   font-size:13px;
   margin-bottom:0;
 }
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
 </style>
 <!DOCTYPE HTML>
 <html>
@@ -154,7 +170,7 @@
   <meta property="og:image" content="https://raw.githubusercontent.com/blasf1/VaccinatEU/main/images/profilepicture_with_background.png" />
   <meta property="og:locale" content="en_GB" />
   <link rel="shortcut icon" type="image/x-icon" href="./images/profilepicture.png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -214,6 +230,18 @@
 
   gtag('config', 'G-HWTBGTYX8K');
 </script>
+<!-- Initialize Bootstrap functionality -->
+<script>
+  // Initialize tooltip component
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+  
+  // Initialize popover component
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+  </script>
 <body>
     <link itemprop="thumbnailUrl" href="https://raw.githubusercontent.com/blasf1/VaccinatEU/main/images/profilepicture_with_background.png">
 
@@ -264,14 +292,27 @@
     <div style="padding-top: 20px;"></div>
     <p>Welcome to @VaccinationEU website. You'll find extended data that you can't find on our Twitter bot and all
       annotations about the sources. Enjoy!</p>
+    <div class="container" style="padding-top: 20px">
+    <div class="card" style="padding-top: 10px; padding-bottom: 5px; padding-right: 10px; padding-left: 10px;">
+      <h3 style="padding-bottom: 10px; font-weight: bold;">&#127466;&#127482; EU progress</h3>
+      <p>People with at least 1 dose:</p>
+      <div class="progress" id="status-bar-partly">
+
+      </div>
+      <p>People fully vaccinated:</p>
+      <div class="progress" id="status-bar-fully">
+
+      </div>
+    </div>
+  </div>
   </div>
 
-  <div id="rank-header" class="container" style="padding-top: 50px;">
+  <div id="rank-header" class="container" style="padding-top: 40px;">
     <h2 style="font-weight: bold;">Current situation</h2>
     <p style="padding-top: 20px;">Here you can find a table with all EU countries vaccination shares and a few extra
       countries to provide context. By default, the table is sorted by fully vaccinated people in descending order.</p>
     <p>Click on the headers to sort the table as you wish.</p>
-    <div style="padding-top: 30px;" id="rank">
+    <div class="container" style="padding-top: 20px" id="rank">
       <script src="./js/sorttable.js"></script>
       <table class="sortable" id="rank-table">
         <thead>
@@ -283,7 +324,7 @@
             <th>People with at least 1 dose</th>
             <th>Adults with at least 1 dose</th>
             <th>Week on week increment*</th>
-            <th class="sorttable_nosort">Days to 70%**</th>
+            <th>Days to 70%**</th>
             <th class="sorttable_nosort" width="110px">Last update</th>
           </tr>
         </thead>
@@ -291,10 +332,10 @@
 
         </tbody>
       </table>
-    </div>
-    <p>*increment of people fully vaccinated. </p>
-    <p>**70% of people fully vaccinated. This is just a prediction based on the average amount of second doses or
+      <p>*increment of people fully vaccinated. </p>
+      <p>**70% of people fully vaccinated. This is just a prediction based on the average amount of second doses or
       single-dose vaccines administered in the last 7 days. </p>
+    </div> 
   </div>
 
   <div id="graphs" class="container" style="padding-top: 50px;">
@@ -640,6 +681,21 @@
     document.getElementById("tbody").innerHTML = return_table(tbodies);
   }
 
+  function loadFully(people_fully_vaccinated){
+
+    var fully = `<div class="progress-bar progress-bar-success" role="progressbar" style="width: ${people_fully_vaccinated}%" aria-valuenow="${people_fully_vaccinated}" aria-valuemin="0" aria-valuemax="100">${people_fully_vaccinated}%</div>`
+    document.getElementById("status-bar-fully").innerHTML = fully;
+
+  }
+
+  function loadPartly(people_vaccinated){
+
+    var partly= `<div class="progress-bar" role="progressbar" style="width: ${people_vaccinated}%" aria-valuenow="${people_vaccinated}" aria-valuemin="0" aria-valuemax="100">${people_vaccinated}%</div>`
+    document.getElementById("status-bar-partly").innerHTML = partly;
+
+  }
+
+
   function download_data() {
     var requestURL = `https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/vaccination.json`;
     var request = new XMLHttpRequest();
@@ -650,8 +706,12 @@
       var data = request.response;
       //build_table(data);
       build_table_sortable(data);
+      loadFully(data["data"]["European Union"].people_fully_vaccinated)
+      loadPartly(data["data"]["European Union"].people_vaccinated)
+
     }
   }
+
 
 </script>
 <noscript>You need to enable JavaScript to view the full site.</noscript>
