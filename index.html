@@ -158,6 +158,20 @@
 table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
     content: " \25BC\25B2" 
 }
+
+.embed-container {
+    position: relative;
+    padding-bottom: 750;
+    height: 0;
+    overflow: hidden;
+}
+.embed-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 </style>
 <!DOCTYPE HTML>
 <html>
@@ -342,11 +356,14 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     </div> 
   </div>
 
-  <div id="graphs" class="container" style="padding-top: 50px;">
+  <div class="container" style="padding-top: 50px;">
     <h2 style="font-weight: bold;">&#128202; Share of people vaccinated against COVID-19</h2>
-    <iframe class="frame" is="x-frame-bypass" autosize=true style="border:none; padding-top: 20px;" seamless="seamless"
-      src="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html" width=850
-      height=800></iframe>
+    <div id="graphs" class="embed-container" >
+    
+      <iframe class="frame" is="x-frame-bypass" autosize=true style="border:none; padding-top: 20px;" seamless="seamless"
+        src="https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/progress.html"
+        allowfullscreen></iframe>
+    </div>
   </div>
 
   <div id="sources" class="container" style="padding-top: 20px;">
