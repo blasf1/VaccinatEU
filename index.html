@@ -154,6 +154,10 @@
 .container {
   padding: 2px 16px;
 }
+
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+    content: " \25B4\25BE" 
+}
 </style>
 <!DOCTYPE HTML>
 <html>
@@ -659,11 +663,8 @@
     var tbodies = []
 
     data["countries_sorted"].map(country => {
-      if (data["data"][country].days_to_70 < 0) {
-        data["data"][country].days_to_70 = "&#9989"
-      }
-      if (data["data"][country].days_to_70 == 0) {
-        data["data"][country].days_to_70 = "--"
+      if (data["data"][country].days_to_70 <= 0) {
+        data["data"][country].days_to_70 = 0
       }
       if (data["data"][country].week_on_week == 0) {
         data["data"][country].week_on_week = "--"
