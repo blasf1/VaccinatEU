@@ -156,7 +156,7 @@
 }
 
 table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
-    content: " \25B4\25BE" 
+    content: " \25BC\25B2" 
 }
 </style>
 <!DOCTYPE HTML>
@@ -328,7 +328,7 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
             <th>People with at least 1 dose</th>
             <th>Adults with at least 1 dose</th>
             <th>Week on week increment*</th>
-            <th class="sorttable_nosort">Days to 70%**</th>
+            <th class="sorttable_numeric">Days to 70%**</th>
             <th class="sorttable_nosort" width="110px">Last update</th>
           </tr>
         </thead>
@@ -664,7 +664,7 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 
     data["countries_sorted"].map(country => {
       if (data["data"][country].days_to_70 <= 0) {
-        data["data"][country].days_to_70 = 0
+        data["data"][country].days_to_70 = "&#9989"
       }
       if (data["data"][country].week_on_week == 0) {
         data["data"][country].week_on_week = "--"
