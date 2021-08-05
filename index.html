@@ -172,6 +172,16 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     width: 100%;
     height: 100%;
 }
+
+#increment{
+display:inline;
+vertical-align: top;
+}
+
+.container{
+   min-width:975px;        /* Suppose you want minimum width of 1000px */
+}
+
 </style>
 <!DOCTYPE HTML>
 <html>
@@ -647,12 +657,12 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
                     <td align="right"><img width="33px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${COUNTRIES_CODES[country]}.png" />
                     <img width="33px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/EU.png" /></td>
                     <td><span style="font-size: 16px; font-weight: bold;"">${country}</span></td>
-                    <td><span style="font-size: 16px; font-weight: bold;">${data.people_fully_vaccinated}%</span></td>
-                    <td><span style="font-size: 16px;">${data.adults_fully_vaccinated}%</span></td>
-                    <td><span style="font-size: 16px; font-weight: bold;">${data.people_vaccinated}%</span></td>
-                    <td><span style="font-size: 16px;">${data.adults_vaccinated}%</span></td>
-                    <td><span style="font-size: 16px;">+${data.week_on_week}%</span></td>
-                    <td><span style="font-size: 16px;">${data.days_to_70}</span></td>
+                    <td><span style="font-size: 16px; font-weight: bold;">${data.people_fully_vaccinated}% ${data.people_fully_vaccinated_increment}</span></td>
+                    <td><span style="font-size: 16px;">${data.adults_fully_vaccinated}% ${data.adults_fully_vaccinated_increment}</span></td>
+                    <td><span style="font-size: 16px; font-weight: bold;">${data.people_vaccinated}% ${data.people_vaccinated_increment}</span></td>
+                    <td><span style="font-size: 16px;">${data.adults_vaccinated}% ${data.adults_vaccinated_increment}</span></td>
+                    <td><span style="font-size: 16px;">+${data.week_on_week}% ${data.week_on_week_increment}</span></td>
+                    <td><span style="font-size: 16px;">${data.days_to_70} ${data.days_to_70_increment}</span></td>
                     <td><span style="font-size: 16px;">${data.date}</span></td>
                     </tr>`
     if (country in NON_EU) {
@@ -660,12 +670,12 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
                     <td align="right">
                     <img width="33px" src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${NON_EU[country]}.png" /></td>
                     <td><span style="font-size: 16px; font-weight: bold;"">${country}</span></td>
-                    <td><span style="font-size: 16px; font-weight: bold;">${data.people_fully_vaccinated}%</span></td>
-                    <td><span style="font-size: 16px;">${data.adults_fully_vaccinated}%</span></td>
-                    <td><span style="font-size: 16px; font-weight: bold;">${data.people_vaccinated}%</span></td>
-                    <td><span style="font-size: 16px;">${data.adults_vaccinated}%</span></td>
-                    <td><span style="font-size: 16px;">+${data.week_on_week}%</span></td>
-                    <td><span style="font-size: 16px;">${data.days_to_70}</span></td>
+                    <td><span style="font-size: 16px; font-weight: bold;">${data.people_fully_vaccinated}% ${data.people_fully_vaccinated_increment}</span></td>
+                    <td><span style="font-size: 16px;">${data.adults_fully_vaccinated}% ${data.adults_fully_vaccinated_increment}</span></td>
+                    <td><span style="font-size: 16px; font-weight: bold;">${data.people_vaccinated}% ${data.people_vaccinated_increment}</span></td>
+                    <td><span style="font-size: 16px;">${data.adults_vaccinated}% ${data.adults_vaccinated_increment}</span></td>
+                    <td><span style="font-size: 16px;">+${data.week_on_week}% ${data.week_on_week_increment}</span></td>
+                    <td><span style="font-size: 16px;">${data.days_to_70} ${data.days_to_70_increment}</span></td>
                     <td><span style="font-size: 16px;">${data.date}</span></td>
                     </tr>`
     }
@@ -683,17 +693,56 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     data["countries_sorted"].map(country => {
       if (data["data"][country].days_to_70 <= 0) {
         data["data"][country].days_to_70 = "&#9989"
-      }
-      if (data["data"][country].week_on_week == 0) {
-        data["data"][country].week_on_week = "--"
-      }
-      if (data["data"][country].adults_fully_vaccinated < 0) {
-        data["data"][country].adults_fully_vaccinated = "--"
-      }
-      if (data["data"][country].adults_vaccinated < 0) {
-        data["data"][country].adults_vaccinated = "--"
+        data["data"][country].days_to_70_increment = ``
+      }else if (data["data"][country].days_to_70_increment < 0){
+        data["data"][country].days_to_70_increment = `<p id="increment" style="font-size:10px; color:green;">&#8595;${data["data"][country].days_to_70_increment * -1}</p>`
+      } else if (data["data"][country].days_to_70_increment > 0){
+        data["data"][country].days_to_70_increment = `<p id="increment" style="font-size:10px; color:red;">&#8593;${data["data"][country].days_to_70_increment}</p>`
+      } else {
+        data["data"][country].days_to_70_increment = `<p id="increment" style="font-size:10px;">=</p>`
       }
 
+      if (data["data"][country].week_on_week == 0) {
+        data["data"][country].week_on_week = "--"
+        data["data"][country].week_on_week_increment = ``
+      }else if (data["data"][country].week_on_week_increment > 0){
+        data["data"][country].week_on_week_increment = `<p id="increment" style="font-size:10px; color:green;">&#8593;${data["data"][country].week_on_week_increment}%</p>`
+      }else if (data["data"][country].week_on_week_increment < 0){
+        data["data"][country].week_on_week_increment = `<p id="increment" style="font-size:10px; color:red;">&#8595;${data["data"][country].week_on_week_increment}%</p>`
+      }else{
+        data["data"][country].week_on_week_increment = `<p id="increment" style="font-size:10px;">=</p>`
+      }
+      
+      if (data["data"][country].people_fully_vaccinated_increment > 0){
+        data["data"][country].people_fully_vaccinated_increment = `<p id="increment" style="font-size:10px; color:green;">&#8593;${data["data"][country].people_fully_vaccinated_increment}%</p>`
+      } else {
+        data["data"][country].people_fully_vaccinated_increment = `<p id="increment" style="font-size:10px;">=</p>`
+      }
+
+      if (data["data"][country].adults_fully_vaccinated < 0) {
+        data["data"][country].adults_fully_vaccinated = "--"
+      } else if (data["data"][country].adults_fully_vaccinated_increment > 0){
+        data["data"][country].adults_fully_vaccinated_increment = `<p id="increment" style="font-size:10px; color:green;">&#8593;${data["data"][country].adults_fully_vaccinated_increment}%</p>`
+      } else {
+        data["data"][country].adults_fully_vaccinated_increment = `<p id="increment" style="font-size:10px;">=</p>`
+      }
+
+      if (data["data"][country].people_vaccinated_increment > 0){
+        data["data"][country].people_vaccinated_increment = `<p id="increment" style="font-size:10px; color:green;">&#8593;${data["data"][country].people_vaccinated_increment}%</p>`
+      }else{
+        data["data"][country].people_vaccinated_increment = `<p id="increment" style="font-size:10px;">=</p>`
+      }
+
+      if (data["data"][country].adults_vaccinated < 0) {
+        data["data"][country].adults_vaccinated = "--"
+      } else if (data["data"][country].adults_vaccinated_increment > 0){
+        data["data"][country].adults_vaccinated_increment = `<p id="increment" style="font-size:10px; color:green;">&#8593;${data["data"][country].adults_vaccinated_increment}%</p>`
+      }else{
+        data["data"][country].adults_vaccinated_increment = `<p id="increment" style="font-size:10px;">=</p>`
+      }
+      
+
+     
       tbodies.push(return_tbody(country, data["data"][country]))
     })
 
