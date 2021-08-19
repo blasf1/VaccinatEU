@@ -358,11 +358,12 @@ vertical-align: top;
 
         </tbody>
       </table>
-      <p>*increment of people fully vaccinated. 70% of fully vaccinated people is the goal set by most governments. However, bear in mind that 
-        in light of the surge of new variants, this is not enough to achieve herd immunity anymore.</p>
+      <p>*increment of people fully vaccinated. </p>
       <p style="padding-top: 10px;">**70% of people fully vaccinated. This is just a prediction based on the average amount of second doses or
       single-dose vaccines administered in the last 7 days. This makes the prediction variable depending on last week's 
-      pace. Please, do not take it as carved in stone.</p>
+      pace. Please, do not take it as carved in stone. 70% of fully vaccinated people is the goal set by most governments. However, bear in mind that 
+      in light of the surge of new variants, this is not enough to achieve herd immunity anymore.</p>
+      <p style="padding-top: 10px;">Sweden increments and days to 70% may not be correct due to the irregularity of their reports.</p>
     </div> 
   </div>
 
@@ -735,8 +736,6 @@ vertical-align: top;
       }else{
         data["data"][country].adults_vaccinated_increment = `<p id="increment" style="font-size:10px;">=</p>`
       }
-      
-
      
       tbodies.push(return_tbody(country, data["data"][country]))
     })
