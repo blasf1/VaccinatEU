@@ -742,6 +742,13 @@ vertical-align: top;
         data["data"][country].adults_vaccinated_increment = `<p id="increment" style="font-size:10px;">=</p>`
       }
      
+      if (data["data"][country].people_vaccinated < data["data"][country].people_fully_vaccinated) {
+        data["data"][country].people_vaccinated = "--"
+      }
+      if (data["data"][country].adults_vaccinated < data["data"][country].adults_fully_vaccinated) {
+        data["data"][country].adults_vaccinated = "--"
+      }
+
       tbodies.push(return_tbody(country, data["data"][country]))
     })
 
