@@ -749,6 +749,16 @@ vertical-align: top;
         data["data"][country].adults_vaccinated = "--"
       }
 
+      if (data["data"][country].people_fully_vaccinated == 0) {
+        data["data"][country].people_fully_vaccinated = "--"
+        data["data"][country].days_to_70 = "--"
+        data["data"][country].days_to_70_increment = "="
+
+      }
+      if (data["data"][country].adults_fully_vaccinated == 0) {
+        data["data"][country].adults_fully_vaccinated = "--"
+      }
+
       tbodies.push(return_tbody(country, data["data"][country]))
     })
 
