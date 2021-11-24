@@ -703,7 +703,8 @@ vertical-align: top;
       }
 
       if (data["data"][country].total_boosters == 0){
-        data["data"][country].total_boosters_increment = "--"
+        data["data"][country].total_boosters = "--"
+        data["data"][country].total_boosters_increment = ""
       }
 
       if (data["data"][country].week_on_week == 0) {
