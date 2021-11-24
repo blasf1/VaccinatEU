@@ -702,6 +702,10 @@ vertical-align: top;
         data["data"][country].total_boosters_increment = `<p id="increment" style="font-size:10px;">=</p>`
       }
 
+      if (data["data"][country].total_boosters == 0){
+        data["data"][country].total_boosters_increment = "--"
+      }
+
       if (data["data"][country].week_on_week == 0) {
         data["data"][country].week_on_week = "--"
         data["data"][country].week_on_week_increment = ``
