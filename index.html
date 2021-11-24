@@ -350,7 +350,7 @@ vertical-align: top;
             <th>People with at least 1 dose</th>
             <th>12+ with at least 1 dose</th>
             <th>Week on week increment*</th>
-            <th class="sorttable_numeric">Days to 70%**</th>
+            <th class="sorttable_numeric">Boosters</th>
             <th class="sorttable_nosort" width="110px">Last update</th>
           </tr>
         </thead>
@@ -665,7 +665,7 @@ vertical-align: top;
                     <td><span style="font-size: 16px; font-weight: bold;">${data.people_vaccinated}% ${data.people_vaccinated_increment}</span></td>
                     <td><span style="font-size: 16px;">${data.adults_vaccinated}% ${data.adults_vaccinated_increment}</span></td>
                     <td><span style="font-size: 16px;">+${data.week_on_week}% ${data.week_on_week_increment}</span></td>
-                    <td><span style="font-size: 16px;">${data.total_boosters} ${data.total_boosters_increment}</span></td>
+                    <td><span style="font-size: 16px;">${data.total_boosters}% ${data.total_boosters_increment}</span></td>
                     <td><span style="font-size: 16px;">${data.date}</span></td>
                     </tr>`
     if (country in NON_EU) {
@@ -678,7 +678,7 @@ vertical-align: top;
                     <td><span style="font-size: 16px; font-weight: bold;">${data.people_vaccinated}% ${data.people_vaccinated_increment}</span></td>
                     <td><span style="font-size: 16px;">${data.adults_vaccinated}% ${data.adults_vaccinated_increment}</span></td>
                     <td><span style="font-size: 16px;">+${data.week_on_week}% ${data.week_on_week_increment}</span></td>
-                    <td><span style="font-size: 16px;">${data.total_boosters} ${data.total_boosters_increment}</span></td>
+                    <td><span style="font-size: 16px;">${data.total_boosters}% ${data.total_boosters_increment}</span></td>
                     <td><span style="font-size: 16px;">${data.date}</span></td>
                     </tr>`
     }
@@ -694,10 +694,7 @@ vertical-align: top;
     var tbodies = []
 
     data["countries_sorted"].map(country => {
-      if (data["data"][country].total_boosters <= 0) {
-        data["data"][country].total_boosters = "&#9989"
-        data["data"][country].total_boosters_increment = ``
-      }else if (data["data"][country].total_boosters_increment < 0){
+      if (data["data"][country].total_boosters_increment < 0){
         data["data"][country].total_boosters_increment = `<p id="increment" style="font-size:10px; color:green;">&#8595;${data["data"][country].total_boosters_increment * -1}</p>`
       } else if (data["data"][country].total_boosters_increment > 0){
         data["data"][country].total_boosters_increment = `<p id="increment" style="font-size:10px; color:red;">&#8593;${data["data"][country].total_boosters_increment}</p>`
