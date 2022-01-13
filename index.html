@@ -346,9 +346,7 @@ vertical-align: top;
             <th class="sorttable_nosort" width="90px"></th>
             <th class="sorttable_nosort" width="15%">Country</th>
             <th>People fully vaccinated</th>
-            <th>12+ fully vaccinated</th>
             <th>People with at least 1 dose</th>
-            <th>12+ with at least 1 dose</th>
             <th>Week on week increment*</th>
             <th class="sorttable_numeric">Days to 70%**</th>
             <th class="sorttable_nosort" width="110px">Last update</th>
@@ -661,9 +659,7 @@ vertical-align: top;
                     <img width="33px"src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/EU.png" /></td>
                     <td><span style="font-size: 16px; font-weight: bold;"">${country}</span></td>
                     <td><span style="font-size: 16px; font-weight: bold;">${data.people_fully_vaccinated}% ${data.people_fully_vaccinated_increment}</span></td>
-                    <td><span style="font-size: 16px;">${data.adults_fully_vaccinated}% ${data.adults_fully_vaccinated_increment}</span></td>
                     <td><span style="font-size: 16px; font-weight: bold;">${data.people_vaccinated}% ${data.people_vaccinated_increment}</span></td>
-                    <td><span style="font-size: 16px;">${data.adults_vaccinated}% ${data.adults_vaccinated_increment}</span></td>
                     <td><span style="font-size: 16px;">+${data.week_on_week}% ${data.week_on_week_increment}</span></td>
                     <td><span style="font-size: 16px;">${data.days_to_70} ${data.days_to_70_increment}</span></td>
                     <td><span style="font-size: 16px;">${data.date}</span></td>
@@ -674,9 +670,7 @@ vertical-align: top;
                     <img width="33px" src="https://github.com/blasf1/covid_vaccine_progress_bot/raw/main/flags/${NON_EU[country]}.png" /></td>
                     <td><span style="font-size: 16px; font-weight: bold;"">${country}</span></td>
                     <td><span style="font-size: 16px; font-weight: bold;">${data.people_fully_vaccinated}% ${data.people_fully_vaccinated_increment}</span></td>
-                    <td><span style="font-size: 16px;">${data.adults_fully_vaccinated}% ${data.adults_fully_vaccinated_increment}</span></td>
                     <td><span style="font-size: 16px; font-weight: bold;">${data.people_vaccinated}% ${data.people_vaccinated_increment}</span></td>
-                    <td><span style="font-size: 16px;">${data.adults_vaccinated}% ${data.adults_vaccinated_increment}</span></td>
                     <td><span style="font-size: 16px;">+${data.week_on_week}% ${data.week_on_week_increment}</span></td>
                     <td><span style="font-size: 16px;">${data.days_to_70} ${data.days_to_70_increment}</span></td>
                     <td><span style="font-size: 16px;">${data.date}</span></td>
@@ -759,7 +753,6 @@ vertical-align: top;
         data["data"][country].adults_fully_vaccinated = "--"
       }
       data["data"]["Bulgaria"].people_vaccinated = "--"
-      data["data"]["Bulgaria"].adults_vaccinated = "--"
       tbodies.push(return_tbody(country, data["data"][country]))
     })
 
