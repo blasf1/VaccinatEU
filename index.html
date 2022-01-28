@@ -329,6 +329,10 @@ vertical-align: top;
       <div class="progress" id="status-bar-fully">
 
       </div>
+      <p>People with a booster:</p>
+      <div class="progress" id="status-bar-booster">
+
+      </div>
     </div>
   </div>
   </div>
@@ -763,7 +767,7 @@ vertical-align: top;
 
   function loadFully(people_fully_vaccinated){
 
-    var fully = `<div class="progress-bar progress-bar-success" role="progressbar" style="width: ${people_fully_vaccinated}%" aria-valuenow="${people_fully_vaccinated}" aria-valuemin="0" aria-valuemax="100">${people_fully_vaccinated}%</div>`
+    var fully = `<div class="progress-bar" role="progressbar" style="width: ${people_fully_vaccinated}%" aria-valuenow="${people_fully_vaccinated}" aria-valuemin="0" aria-valuemax="100">${people_fully_vaccinated}%</div>`
     document.getElementById("status-bar-fully").innerHTML = fully;
 
   }
@@ -775,7 +779,12 @@ vertical-align: top;
 
   }
 
+  function loadBooster(people_booster){
 
+var booster= `<div class="progress-bar progress-bar-success" role="progressbar" style="width: ${people_booster}%" aria-valuenow="${people_booster}" aria-valuemin="0" aria-valuemax="100">${people_booster}%</div>`
+document.getElementById("status-bar-booster").innerHTML = booster;
+
+}
   function download_data() {
     var requestURL = `https://raw.githubusercontent.com/blasf1/covid_vaccine_progress_bot/main/output/vaccination.json`;
     var request = new XMLHttpRequest();
@@ -788,7 +797,7 @@ vertical-align: top;
       build_table_sortable(data);
       loadFully(data["data"]["European Union"].people_fully_vaccinated)
       loadPartly(data["data"]["European Union"].people_vaccinated)
-
+      loadBooster(data["data"]["European Union"].total_boosters)
     }
   }
 
